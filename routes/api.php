@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -18,3 +19,14 @@ Route::delete("/user/{id}", [UserController::class, "funEliminar"]);
 
 // CRUD ROLES
 Route::apiResource("roles", RoleController::class);
+
+// Auth
+Route::prefix('/auth')->group(function(){
+    Route::post('/login', [AuthController::class, 'funLogin']);
+    Route::post('/register', [AuthController::class, 'funRegister']);
+
+    Route::middleware('auth:sanctum')->group(function(){
+        Route::get('/profile', [AuthController::class, 'funProfile']);
+        Route::post('/logout', [AuthController::class, 'funLogout']);
+    });
+});
