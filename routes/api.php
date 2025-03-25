@@ -21,7 +21,7 @@ Route::delete("/user/{id}", [UserController::class, "funEliminar"]);
 Route::apiResource("roles", RoleController::class);
 
 // Auth
-Route::prefix('/auth')->group(function(){
+Route::prefix('/v1/auth')->group(function(){
     Route::post('/login', [AuthController::class, 'funLogin']);
     Route::post('/register', [AuthController::class, 'funRegister']);
 

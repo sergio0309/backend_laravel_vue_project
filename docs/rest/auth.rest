@@ -1,11 +1,11 @@
 ### Login
-POST http://127.0.0.1:8000/api/auth/login
+POST http://127.0.0.1:8000/v1/api/auth/login
 Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "daniel@email",
-    "password": "daniel54321"
+    "email": "ron@email",
+    "password": "ron54321"
 }
 
 ### Perfil
